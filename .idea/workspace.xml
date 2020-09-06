@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be741710-8257-45a4-b8d3-a0cb259606ba" name="Default Changelist" comment="" />
+    <list default="true" id="be741710-8257-45a4-b8d3-a0cb259606ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MxShop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MxShop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/trade/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/trade/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/user_operation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user_operation/models.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,15 +32,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\笔记\MxShop\apps" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\笔记\MxShop" />
       <recent name="E:\笔记" />
+      <recent name="E:\笔记\MxShop" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,7 +95,7 @@
       <workItem from="1599209944201" duration="4000" />
       <workItem from="1599210118462" duration="79000" />
       <workItem from="1599374349254" duration="3878000" />
-      <workItem from="1599381156208" duration="8618000" />
+      <workItem from="1599381156208" duration="10028000" />
     </task>
     <servers />
   </component>
