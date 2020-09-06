@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="be741710-8257-45a4-b8d3-a0cb259606ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MxShop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MxShop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +30,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\笔记\MxShop\apps" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\笔记\MxShop" />
       <recent name="E:\笔记" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\笔记\MxShop\apps" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,6 +90,7 @@
       <workItem from="1599209944201" duration="4000" />
       <workItem from="1599210118462" duration="79000" />
       <workItem from="1599374349254" duration="3878000" />
+      <workItem from="1599381156208" duration="3974000" />
     </task>
     <servers />
   </component>
@@ -106,5 +109,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://D:/软件下载/coding-131/MxShop/apps/users/models.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
