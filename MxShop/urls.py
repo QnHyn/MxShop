@@ -18,9 +18,13 @@ from django.urls import path, re_path
 import xadmin
 from MxShop.settings import MEDIA_ROOT
 from django.views.static import serve
+from goods.views_base import GoodsListView
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     # 配置媒体文件夹路由地址
     re_path('media/(?P<path>.*)', serve, {'document_root': MEDIA_ROOT}, name='media'),
+
+    # 商品列表页
+    path(r'goods/', GoodsListView.as_view(), name="goods-list")
 ]
