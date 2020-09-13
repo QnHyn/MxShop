@@ -14,17 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 import xadmin
+import rest_framework
 from MxShop.settings import MEDIA_ROOT
 from django.views.static import serve
-from goods.views_base import GoodsListView
+# from goods.views_base import GoodsListView
+from goods.views import GoodsListView
+from rest_framework.schemas import get_schema_view
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    # 登陆配置
+    path('api-auth/', include("rest_framework.urls")),
     # 配置媒体文件夹路由地址
     re_path('media/(?P<path>.*)', serve, {'document_root': MEDIA_ROOT}, name='media'),
 
     # 商品列表页
-    path(r'goods/', GoodsListView.as_view(), name="goods-list")
+    path(r'goods/', GoodsListView.as_view(), name="goods-list"),
+    path('openapi', get_schema_view(title="生鲜电商"), name='openapi-schema'),
 ]
