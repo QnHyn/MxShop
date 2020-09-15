@@ -1,25 +1,29 @@
 from goods.serializer import GoodsSerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework import generics
 from .models import Goods
-from rest_framework import status
+from rest_framework.pagination import PageNumberPagination
 
 
-# APIView 集成 django中的view 而且加了很多功能
-class GoodsListView(APIView):
+# 自定义分页的样式
+class GoodsPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    page_query_param = 'p'
+    max_page_size = 100
+
+
+# 必须继承ListModelMixin和GenericAPIView, 如果要接受前端发来数据还要继承CreateModelMixin
+# class GoodsListView(mixins.ListModelMixin, generics.GenericAPIView):
+# ListAPIView 查看源码它帮我们继承了ListModelMixin和GenericAPIView 并重写了get方法
+class GoodsListView(generics.ListAPIView):
     """
-    List all snippets, or create a new snippet.
+    商品列表页展示
     """
-    def get(self, request, format=None):
-        goods = Goods.objects.all()[:10]
-        # many=True 列表里面有十个 如果只是一个可以不加
-        goods_json = GoodsSerializer(goods, many=True)
-        return Response(goods_json.data)
+    queryset = Goods.objects.all()
+    serializer_class = GoodsSerializer
+    pagination_class = GoodsPagination
 
-    def post(self, request, format=None):
-        serializer = GoodsSerializer(data=request.data)
-        if serializer.is_valid():
-            # 这里调用serializer中的create方法
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # 重载get函数
+    # def get(self, request, *args, **kwargs):
+    #     return self.list(request, *args, **kwargs)
+
