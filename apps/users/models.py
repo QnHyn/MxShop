@@ -20,6 +20,7 @@ class UserProfile(AbstractUser):
         verbose_name_plural = verbose_name
 
     def __str__(self):
+        # 这里不是name 是父类AbstractUser封装的
         return self.username
 
 
