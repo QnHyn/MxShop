@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'xadmin',
     'DjangoUeditor',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
