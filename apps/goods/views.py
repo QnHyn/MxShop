@@ -5,6 +5,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets, mixins
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import GoodsFilter
+from rest_framework import filters
 
 
 # 自定义分页的样式
@@ -17,14 +18,17 @@ class GoodsPagination(PageNumberPagination):
 
 class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
-    商品列表页展示
+    商品列表页，分页，搜索，过滤，排序
     """
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsPagination
 
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_class = GoodsFilter
+    # 查询和排序这里可以加一些正则的语法
+    search_fields = ['^name', 'goods_brief', 'goods_desc']
+    ordering_fields = ['sold_num', 'add_time']
     # filterset_fields = ['name', 'shop_price']
 
 
