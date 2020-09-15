@@ -2,6 +2,7 @@ from goods.serializer import GoodsSerializer
 from rest_framework import generics
 from .models import Goods
 from rest_framework.pagination import PageNumberPagination
+from rest_framework import viewsets, mixins
 
 
 # 自定义分页的样式
@@ -12,10 +13,7 @@ class GoodsPagination(PageNumberPagination):
     max_page_size = 100
 
 
-# 必须继承ListModelMixin和GenericAPIView, 如果要接受前端发来数据还要继承CreateModelMixin
-# class GoodsListView(mixins.ListModelMixin, generics.GenericAPIView):
-# ListAPIView 查看源码它帮我们继承了ListModelMixin和GenericAPIView 并重写了get方法
-class GoodsListView(generics.ListAPIView):
+class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     商品列表页展示
     """

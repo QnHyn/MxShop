@@ -20,8 +20,19 @@ import rest_framework
 from MxShop.settings import MEDIA_ROOT
 from django.views.static import serve
 # from goods.views_base import GoodsListView
-from goods.views import GoodsListView
+from goods.views import GoodsListViewset
 from rest_framework.schemas import get_schema_view
+from rest_framework.routers import DefaultRouter
+
+
+# 可以将get请求绑定到list方法上 router配置
+# goods_list = GoodsListViewset.as_view({
+#     'get': 'list'
+# })
+
+router = DefaultRouter()
+# 配置goods的url
+router.register(r'goods', GoodsListViewset)
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
@@ -31,6 +42,9 @@ urlpatterns = [
     re_path('media/(?P<path>.*)', serve, {'document_root': MEDIA_ROOT}, name='media'),
 
     # 商品列表页
-    path(r'goods/', GoodsListView.as_view(), name="goods-list"),
+    # path(r'goods/', GoodsListView.as_view(), name="goods-list"),
+    # router配置
+    # path(r'goods/', goods_list, name="goods-list"),
+    path('', include(router.urls)),
     path('openapi', get_schema_view(title="生鲜电商"), name='openapi-schema'),
 ]
