@@ -25,3 +25,13 @@ class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     # def get(self, request, *args, **kwargs):
     #     return self.list(request, *args, **kwargs)
 
+    # 加自己逻辑 过滤数据
+    def get_queryset(self):
+        queryset = Goods.objects.all()
+        # 前端穿过来的数据
+        price_min = self.request.query_params.get("price_min", 0)
+        if price_min:
+            queryset = Goods.objects.filter(shop_price__gt=int(price_min))
+        return queryset
+        #return Goods.objects.filter(shop_price__gt=100)
+
