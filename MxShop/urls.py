@@ -25,7 +25,7 @@ from rest_framework.schemas import get_schema_view
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
-    # 登陆配置
+    # 登陆配置 如果不配置这个看到的api页面就没有登录按钮
     path('api-auth/', include("rest_framework.urls")),
     # 配置媒体文件夹路由地址
     re_path('media/(?P<path>.*)', serve, {'document_root': MEDIA_ROOT}, name='media'),
