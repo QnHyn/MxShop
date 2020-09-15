@@ -4,6 +4,7 @@ from .models import Goods
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets, mixins
 from django_filters.rest_framework import DjangoFilterBackend
+from .filters import GoodsFilter
 
 
 # 自定义分页的样式
@@ -23,7 +24,8 @@ class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     pagination_class = GoodsPagination
 
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['name', 'shop_price']
+    filterset_class = GoodsFilter
+    # filterset_fields = ['name', 'shop_price']
 
 
     # 重载get函数
