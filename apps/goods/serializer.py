@@ -2,7 +2,21 @@ from rest_framework import serializers
 from goods.models import Goods, GoodsCategory
 
 
+class GoodsCategorySerializer3(serializers.ModelSerializer):
+    class Meta:
+        model = GoodsCategory
+        fields = "__all__"
+
+
+class GoodsCategorySerializer2(serializers.ModelSerializer):
+    sub_cat = GoodsCategorySerializer3(many=True)
+    class Meta:
+        model = GoodsCategory
+        fields = "__all__"
+
+
 class GoodsCategorySerializer(serializers.ModelSerializer):
+    sub_cat = GoodsCategorySerializer2(many=True)
     class Meta:
         model = GoodsCategory
         fields = "__all__"
@@ -19,4 +33,6 @@ class GoodsSerializer(serializers.ModelSerializer):
         # fields = ['name', 'click_num', 'market_price', 'add_time']
         # 2. 取出全部 外键序列化为id
         fields = "__all__"
+
+
 

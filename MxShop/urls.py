@@ -20,7 +20,7 @@ import rest_framework
 from MxShop.settings import MEDIA_ROOT
 from django.views.static import serve
 # from goods.views_base import GoodsListView
-from goods.views import GoodsListViewset
+from goods.views import GoodsListViewset, CategoryViewSet
 from rest_framework.schemas import get_schema_view
 from rest_framework.routers import DefaultRouter
 
@@ -32,7 +32,9 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 # 配置goods的url
-router.register(r'goods', GoodsListViewset)
+router.register(r'goods', GoodsListViewset, basename="goods")
+router.register(r'categorys', CategoryViewSet, basename="categorys")
+
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
