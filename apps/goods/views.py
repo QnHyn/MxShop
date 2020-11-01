@@ -6,6 +6,7 @@ from rest_framework import viewsets, mixins
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import GoodsFilter
 from rest_framework import filters
+from rest_framework.authentication import TokenAuthentication
 
 
 # 自定义分页的样式
@@ -23,7 +24,7 @@ class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsPagination
-
+    authentication_classes = (TokenAuthentication, )
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_class = GoodsFilter
     # 查询和排序这里可以加一些正则的语法

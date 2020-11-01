@@ -23,6 +23,7 @@ from django.views.static import serve
 from goods.views import GoodsListViewset, CategoryViewSet
 from rest_framework.schemas import get_schema_view
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
 
 
 # 可以将get请求绑定到list方法上 router配置
@@ -49,4 +50,5 @@ urlpatterns = [
     # path(r'goods/', goods_list, name="goods-list"),
     path('', include(router.urls)),
     path('openapi', get_schema_view(title="生鲜电商"), name='openapi-schema'),
+    path('api-token-auth/', views.obtain_auth_token),
 ]
