@@ -24,7 +24,7 @@ class GoodsListViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     pagination_class = GoodsPagination
-    authentication_classes = (TokenAuthentication, )
+    # authentication_classes = (TokenAuthentication, )
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_class = GoodsFilter
     # 查询和排序这里可以加一些正则的语法

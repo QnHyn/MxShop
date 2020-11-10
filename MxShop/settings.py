@@ -134,6 +134,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -152,6 +156,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ]
+}
+
+# 设置过期时间和设置header中的前缀(和前端保持一致就行jwt或token)
+import datetime
+JWT_AUTH = {
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
